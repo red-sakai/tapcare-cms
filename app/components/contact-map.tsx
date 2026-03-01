@@ -34,6 +34,7 @@ export default function ContactMap() {
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      opacity: 0.8,
     }).addTo(map);
 
     L.circle(rizalHighSchoolPosition, {
@@ -55,7 +56,10 @@ export default function ContactMap() {
   }, []);
 
   return (
-    <div className="relative h-[280px] overflow-hidden rounded-xl border border-white/20 sm:h-[340px]">
+    <div
+      className="relative h-[280px] overflow-hidden rounded-xl border border-white/20 bg-cover bg-center bg-no-repeat sm:h-[340px]"
+      style={{ backgroundImage: "url('/tapcare-assets/rhs-bg.png')" }}
+    >
       <div className="pointer-events-none absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-red-900/90 px-3 py-1 text-xs font-semibold text-white shadow-lg">
         Rizal High School
       </div>

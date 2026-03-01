@@ -69,6 +69,7 @@ export default function Home() {
   const [currentFeature, setCurrentFeature] = useState(0);
   const [isFeatureAnimating, setIsFeatureAnimating] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lenisRef = useRef<Lenis | null>(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -124,6 +125,7 @@ export default function Home() {
   ) => {
     event.preventDefault();
     setActiveSection(section);
+    setIsMobileMenuOpen(false);
 
     const targetElement = document.querySelector<HTMLElement>(targetId);
     if (!targetElement) {
@@ -176,8 +178,26 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const navItemClass = (section: SectionId) =>
     `inline-flex rounded-full px-5 py-2 text-sm transition-all ${
+      activeSection === section
+        ? "bg-white font-semibold text-red-700 shadow-sm"
+        : "font-medium text-red-50/95 hover:bg-white/15"
+    }`;
+
+  const mobileNavItemClass = (section: SectionId) =>
+    `inline-flex w-full justify-start rounded-full px-4 py-2.5 text-sm transition-all ${
       activeSection === section
         ? "bg-white font-semibold text-red-700 shadow-sm"
         : "font-medium text-red-50/95 hover:bg-white/15"
@@ -278,12 +298,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-950 via-red-900 to-red-950 px-6 py-8 font-sans">
       <div className="mx-auto flex w-full max-w-[92rem] flex-col gap-8">
-        <nav className="sticky top-4 z-50 self-center rounded-full border border-white/25 bg-gradient-to-r from-red-700/80 via-red-600/75 to-red-800/80 px-5 py-2 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-md">
-          <ul className="flex items-center gap-2">
-            <li className="mt-1 pl-1 pr-2">
+        <nav className="sticky top-4 z-50 w-full max-w-[22rem] self-center md:w-auto md:max-w-none">
+          <div className="rounded-[2.2rem] border border-white/25 bg-gradient-to-r from-red-700/80 via-red-600/75 to-red-800/80 px-4 py-3 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-md md:rounded-full md:px-5 md:py-2">
+            <div className="flex items-center justify-between gap-3 md:hidden">
               <a
                 href="#home"
-                className="inline-flex items-center p-1.5"
+                className="inline-flex items-center p-1"
                 onClick={(event) => handleNavClick(event, "#home", "home")}
               >
                 <Image
@@ -294,67 +314,162 @@ export default function Home() {
                   priority
                 />
               </a>
-            </li>
-            <li>
-              <a
-                href="#home"
-                className={navItemClass("home")}
-                onClick={(event) => handleNavClick(event, "#home", "home")}
+              <button
+                type="button"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen((current) => !current)}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
               >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about-us"
-                className={navItemClass("about-us")}
-                onClick={(event) =>
-                  handleNavClick(event, "#about-us", "about-us")
-                }
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="#features"
-                className={navItemClass("features")}
-                onClick={(event) =>
-                  handleNavClick(event, "#features", "features")
-                }
-              >
-                Features
-              </a>
-            </li>
-            <li>
-              <a
-                href="#tutorial"
-                className={navItemClass("tutorial")}
-                onClick={(event) =>
-                  handleNavClick(event, "#tutorial", "tutorial")
-                }
-              >
-                Tutorial
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className={navItemClass("contact")}
-                onClick={(event) => handleNavClick(event, "#contact", "contact")}
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://tapcaredownload.vercel.app/"
-                className="inline-flex rounded-full bg-orange-400 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-300"
-              >
-                Download APK
-              </a>
-            </li>
-          </ul>
+                <span className="text-xl leading-none">{isMobileMenuOpen ? "✕" : "☰"}</span>
+              </button>
+            </div>
+
+            {isMobileMenuOpen && (
+              <ul className="mt-3 flex flex-col gap-1.5 pb-1 md:hidden">
+                <li>
+                  <a
+                    href="#home"
+                    className={mobileNavItemClass("home")}
+                    onClick={(event) => handleNavClick(event, "#home", "home")}
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about-us"
+                    className={mobileNavItemClass("about-us")}
+                    onClick={(event) =>
+                      handleNavClick(event, "#about-us", "about-us")
+                    }
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#features"
+                    className={mobileNavItemClass("features")}
+                    onClick={(event) =>
+                      handleNavClick(event, "#features", "features")
+                    }
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#tutorial"
+                    className={mobileNavItemClass("tutorial")}
+                    onClick={(event) =>
+                      handleNavClick(event, "#tutorial", "tutorial")
+                    }
+                  >
+                    Tutorial
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className={mobileNavItemClass("contact")}
+                    onClick={(event) =>
+                      handleNavClick(event, "#contact", "contact")
+                    }
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://tapcaredownload.vercel.app/"
+                    className="mt-1 inline-flex w-full justify-center rounded-full bg-orange-400 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-300"
+                  >
+                    Download APK
+                  </a>
+                </li>
+              </ul>
+            )}
+
+            <ul className="hidden items-center gap-2 md:flex">
+              <li className="mt-1 pl-1 pr-2">
+                <a
+                  href="#home"
+                  className="inline-flex items-center p-1.5"
+                  onClick={(event) => handleNavClick(event, "#home", "home")}
+                >
+                  <Image
+                    src="/tapcare-assets/tapcare-logo-only.png"
+                    alt="Tapcare logo"
+                    width={34}
+                    height={34}
+                    priority
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#home"
+                  className={navItemClass("home")}
+                  onClick={(event) => handleNavClick(event, "#home", "home")}
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about-us"
+                  className={navItemClass("about-us")}
+                  onClick={(event) =>
+                    handleNavClick(event, "#about-us", "about-us")
+                  }
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#features"
+                  className={navItemClass("features")}
+                  onClick={(event) =>
+                    handleNavClick(event, "#features", "features")
+                  }
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#tutorial"
+                  className={navItemClass("tutorial")}
+                  onClick={(event) =>
+                    handleNavClick(event, "#tutorial", "tutorial")
+                  }
+                >
+                  Tutorial
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className={navItemClass("contact")}
+                  onClick={(event) =>
+                    handleNavClick(event, "#contact", "contact")
+                  }
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://tapcaredownload.vercel.app/"
+                  className="inline-flex rounded-full bg-orange-400 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-300"
+                >
+                  Download APK
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
 
         <main
