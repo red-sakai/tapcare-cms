@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TapCare CMS Landing Page
 
-## Getting Started
+This project is a red-themed TapCare landing page built with Next.js App Router.
 
-First, run the development server:
+## Tech Stack
+
+### Framework
+- Next.js `16.1.6` (App Router)
+
+### Languages
+- TypeScript / TSX
+- CSS (Tailwind CSS v4)
+
+### UI / Libraries
+- React `19.2.3`
+- React DOM `19.2.3`
+- Tailwind CSS `^4`
+- React Icons `^5.5.0`
+- Lenis `^1.3.17` (smooth scrolling)
+- Leaflet `^1.9.4` (map)
+- React Leaflet `^5.0.0` (installed dependency)
+
+## Project Sections
+
+Main sections currently implemented in `app/page.tsx`:
+- Home
+- About Us
+- Features
+- Tutorial
+- Contact (Footer + Map)
+
+## Key Features in the Page
+
+- Sticky pill-style navbar with active section highlighting
+- Lenis smooth scroll for section navigation
+- Scroll reveal (fade-in) animation using `IntersectionObserver`
+- Features carousel with touch swipe and auto-advance
+- Tutorial cards with section-specific assets
+- Contact section with form layout + Rizal High School map
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start production server:
 
-## Learn More
+```bash
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment (Vercel)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is ready to deploy on Vercel.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option 1: Vercel Dashboard
+1. Push the project to GitHub/GitLab/Bitbucket.
+2. Go to [Vercel](https://vercel.com/) and click **Add New Project**.
+3. Import the repository.
+4. Keep default Next.js build settings.
+5. Click **Deploy**.
 
-## Deploy on Vercel
+### Option 2: Vercel CLI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm i -g vercel
+vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For production deployment:
+
+```bash
+vercel --prod
+```
+
+## Scripts
+
+- `npm run dev` – start dev server
+- `npm run build` – production build
+- `npm run start` – run built app
+- `npm run lint` – run lint checks
