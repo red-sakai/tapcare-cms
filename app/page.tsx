@@ -4,6 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import Lenis from "lenis";
 import { useCallback, useEffect, useRef, useState } from "react";
+import SiteTour from "@/app/components/site-tour";
 import {
   FaBell,
   FaEnvelope,
@@ -297,8 +298,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-950 via-red-900 to-red-950 px-6 py-8 font-sans">
+      <SiteTour />
       <div className="mx-auto flex w-full max-w-[92rem] flex-col gap-8">
-        <nav className="sticky top-4 z-50 w-full max-w-[22rem] self-center md:w-auto md:max-w-none">
+        <nav
+          data-tour="site-nav"
+          className="sticky top-4 z-50 w-full max-w-[22rem] self-center md:w-auto md:max-w-none"
+        >
           <div className="rounded-[2.2rem] border border-white/25 bg-gradient-to-r from-red-700/80 via-red-600/75 to-red-800/80 px-4 py-3 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-md md:rounded-full md:px-5 md:py-2">
             <div className="flex items-center justify-between gap-3 md:hidden">
               <a
@@ -316,6 +321,7 @@ export default function Home() {
               </a>
               <button
                 type="button"
+                data-tour="mobile-nav-toggle"
                 aria-label="Toggle navigation menu"
                 aria-expanded={isMobileMenuOpen}
                 onClick={() => setIsMobileMenuOpen((current) => !current)}
@@ -474,6 +480,7 @@ export default function Home() {
 
         <main
           id="home"
+          data-tour="hero"
           data-reveal
           className="reveal-on-scroll relative px-8 py-14 sm:px-12 lg:min-h-[78vh] lg:px-16 lg:py-20"
         >
@@ -495,7 +502,7 @@ export default function Home() {
                 share live location, and improve response time when every second
                 matters.
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div data-tour="hero-actions" className="flex flex-wrap gap-3">
                 <a
                   href="https://tapcaredownload.vercel.app/"
                   className="rounded-full bg-orange-400 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-300 sm:text-lg"
@@ -528,6 +535,7 @@ export default function Home() {
 
         <section
           id="about-us"
+          data-tour="about"
           data-reveal
           className="reveal-on-scroll relative mx-auto w-full max-w-6xl px-8 pb-24 pt-10 sm:px-12 lg:px-16"
         >
@@ -631,6 +639,7 @@ export default function Home() {
 
         <section
           id="features"
+          data-tour="features"
           data-reveal
           className="reveal-on-scroll relative mx-auto w-full max-w-6xl px-8 pb-24 pt-6 sm:px-12 lg:px-16"
         >
@@ -652,6 +661,7 @@ export default function Home() {
             </div>
 
             <div
+              data-tour="feature-carousel"
               className="mt-12"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
@@ -737,6 +747,7 @@ export default function Home() {
 
         <section
           id="tutorial"
+          data-tour="tutorial"
           data-reveal
           className="reveal-on-scroll relative mx-auto w-full max-w-6xl px-8 pb-24 pt-6 sm:px-12 lg:px-16"
         >
@@ -836,6 +847,7 @@ export default function Home() {
 
           <footer
             id="contact"
+            data-tour="contact"
             data-reveal
             className="reveal-on-scroll relative w-full bg-gradient-to-b from-red-950/65 to-red-950/90"
           >
@@ -900,7 +912,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <form className="space-y-4 text-base text-red-100/90 sm:text-lg">
+              <form data-tour="contact-form" className="space-y-4 text-base text-red-100/90 sm:text-lg">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <label className="space-y-2">
                     <span className="font-medium">First Name</span>
@@ -946,7 +958,7 @@ export default function Home() {
               </form>
             </div>
 
-            <div className="mt-12 border-t border-white/25 pt-8">
+            <div data-tour="contact-map" className="mt-12 border-t border-white/25 pt-8">
               <ContactMap />
             </div>
             </div>
