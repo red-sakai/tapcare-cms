@@ -190,14 +190,14 @@ export default function Home() {
   }, []);
 
   const navItemClass = (section: SectionId) =>
-    `inline-flex rounded-full px-5 py-2 text-sm transition-all ${
+    `inline-flex rounded-full px-5 py-2 text-base transition-all md:text-sm ${
       activeSection === section
         ? "bg-white font-semibold text-red-700 shadow-sm"
         : "font-medium text-red-50/95 hover:bg-white/15"
     }`;
 
   const mobileNavItemClass = (section: SectionId) =>
-    `inline-flex w-full justify-start rounded-full px-4 py-2.5 text-sm transition-all ${
+    `inline-flex w-full justify-start rounded-full px-4 py-2.5 text-base transition-all ${
       activeSection === section
         ? "bg-white font-semibold text-red-700 shadow-sm"
         : "font-medium text-red-50/95 hover:bg-white/15"
@@ -383,7 +383,7 @@ export default function Home() {
                 <li>
                   <a
                     href="https://tapcaredownload.vercel.app/"
-                    className="mt-1 inline-flex w-full justify-center rounded-full bg-orange-400 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-300"
+                    className="mt-1 inline-flex w-full justify-center rounded-full bg-orange-400 px-5 py-2.5 text-base font-semibold text-white transition-colors hover:bg-orange-300"
                   >
                     Download APK
                   </a>
@@ -463,7 +463,7 @@ export default function Home() {
               <li>
                 <a
                   href="https://tapcaredownload.vercel.app/"
-                  className="inline-flex rounded-full bg-orange-400 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-300"
+                  className="inline-flex rounded-full bg-orange-400 px-5 py-2 text-base font-semibold text-white transition-colors hover:bg-orange-300 md:text-sm"
                 >
                   Download APK
                 </a>
@@ -490,7 +490,7 @@ export default function Home() {
                 priority
                 className="h-auto w-full max-w-xl"
               />
-              <p className="max-w-xl text-base text-red-50/90 sm:text-lg">
+              <p className="max-w-xl text-lg text-red-50/90 sm:text-xl">
                 Built for critical situations: instantly trigger emergency alerts,
                 share live location, and improve response time when every second
                 matters.
@@ -498,13 +498,13 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="https://tapcaredownload.vercel.app/"
-                  className="rounded-full bg-orange-400 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-300"
+                  className="rounded-full bg-orange-400 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-300 sm:text-lg"
                 >
                   Download APK
                 </a>
                 <a
                   href="#about-us"
-                  className="rounded-full border border-red-300/60 px-6 py-3 text-sm font-semibold text-red-50 transition-colors hover:bg-red-700/60"
+                  className="rounded-full border border-red-300/60 px-6 py-3 text-base font-semibold text-red-50 transition-colors hover:bg-red-700/60 sm:text-lg"
                   onClick={(event) =>
                     handleNavClick(event, "#about-us", "about-us")
                   }
@@ -535,20 +535,20 @@ export default function Home() {
           <div className="pointer-events-none absolute right-8 top-14 h-44 w-44 rounded-full bg-orange-300/10 blur-3xl" />
 
           <div className="relative z-10 mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-red-200/80">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-red-200/80">
               About TapCare
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               About Us
             </h2>
 
             <div className="mx-auto mt-6 flex w-full max-w-sm items-center gap-4">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-red-200/60" />
-              <span className="text-sm font-medium text-red-100/85">Our Purpose</span>
+              <span className="text-base font-medium text-red-100/85 sm:text-lg">Our Purpose</span>
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-red-200/60" />
             </div>
 
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-red-50/95 sm:text-xl">
+            <p className="mx-auto mt-8 max-w-3xl text-xl leading-9 text-red-50/95 sm:text-2xl">
               <span className="font-semibold text-orange-200">TAPCARE</span> (Trigger
               Alert Protocol) is a mobile application designed to assist Senior
               High School students of Rizal High School during medical
@@ -571,8 +571,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-red-950/70 via-red-900/10 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white">Students</h3>
-                  <p className="mt-3 text-sm leading-7 text-red-50/90">
+                  <h3 className="text-2xl font-bold text-white sm:text-[1.65rem]">Students</h3>
+                  <p className="mt-3 text-base leading-8 text-red-50/90 sm:text-lg">
                     TAPCare helps students of Rizal High School get emergency
                     help quickly using a one-tap or one-shake alert. It also has
                     a basic first-aid guide so students can help others while
@@ -595,8 +595,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-red-950/70 via-red-900/10 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white">School Staff</h3>
-                  <p className="mt-3 text-sm leading-7 text-red-50/90">
+                  <h3 className="text-2xl font-bold text-white sm:text-[1.65rem]">School Staff</h3>
+                  <p className="mt-3 text-base leading-8 text-red-50/90 sm:text-lg">
                     TAPCare helps teachers, staff, and security respond faster
                     during emergencies. It improves communication and helps keep
                     the school safer.
@@ -616,8 +616,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-red-950/70 via-red-900/10 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white">Medical Personnel</h3>
-                  <p className="mt-3 text-sm leading-7 text-red-50/90">
+                  <h3 className="text-2xl font-bold text-white sm:text-[1.65rem]">Medical Personnel</h3>
+                  <p className="mt-3 text-base leading-8 text-red-50/90 sm:text-lg">
                     TAPCare helps school nurses see students’ medical
                     information, emergency contacts, and health conditions
                     quickly. This helps them prepare and give faster and better
@@ -638,16 +638,16 @@ export default function Home() {
           <div className="pointer-events-none absolute right-8 top-14 h-44 w-44 rounded-full bg-orange-300/10 blur-3xl" />
 
           <div className="relative z-10 mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-red-200/80">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-red-200/80">
               TapCare Platform
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Features
             </h2>
 
             <div className="mx-auto mt-6 flex w-full max-w-sm items-center gap-4">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-red-200/60" />
-              <span className="text-sm font-medium text-red-100/85">What We Offer</span>
+              <span className="text-base font-medium text-red-100/85 sm:text-lg">What We Offer</span>
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-red-200/60" />
             </div>
 
@@ -681,10 +681,10 @@ export default function Home() {
                           <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-orange-300/20 text-3xl text-orange-200 ring-1 ring-orange-200/40">
                             <feature.icon />
                           </div>
-                          <h3 className="flex min-h-[4.25rem] items-center justify-center text-2xl font-bold text-white sm:min-h-[4.75rem]">
+                          <h3 className="flex min-h-[4.75rem] items-center justify-center text-[1.9rem] font-bold text-white sm:min-h-[4.75rem] sm:text-4xl">
                             {feature.title}
                           </h3>
-                          <p className="mt-4 flex min-h-[8.5rem] items-start text-sm leading-7 text-red-50/90 sm:min-h-[9.5rem] sm:text-base">
+                          <p className="mt-4 flex min-h-[10rem] items-start text-base leading-8 text-red-50/90 sm:min-h-[9.5rem] sm:text-lg">
                             {feature.description}
                           </p>
                         </div>
@@ -712,7 +712,7 @@ export default function Home() {
               </div>
 
               <div className="mt-8 text-center">
-                <h4 className="text-2xl font-bold text-white sm:text-3xl">
+                <h4 className="text-3xl font-bold text-white sm:text-4xl">
                   {activeFeature.title}
                 </h4>
               </div>
@@ -744,16 +744,16 @@ export default function Home() {
           <div className="pointer-events-none absolute right-8 top-14 h-44 w-44 rounded-full bg-orange-300/10 blur-3xl" />
 
           <div className="relative z-10 mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-red-200/80">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-red-200/80">
               TapCare Guide
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Tutorial
             </h2>
 
             <div className="mx-auto mt-6 flex w-full max-w-sm items-center gap-4">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-red-200/60" />
-              <span className="text-sm font-medium text-red-100/85">How It Works</span>
+              <span className="text-base font-medium text-red-100/85 sm:text-lg">How It Works</span>
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-red-200/60" />
             </div>
 
@@ -770,8 +770,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-red-950/60 via-red-900/5 to-transparent" />
                 </div>
                 <div className="p-6 text-left">
-                  <h3 className="text-center text-xl font-bold text-white">Mobile Application</h3>
-                  <p className="mt-3 text-sm leading-7 text-red-50/90">
+                  <h3 className="text-center text-2xl font-bold text-white sm:text-[1.65rem]">Mobile Application</h3>
+                  <p className="mt-3 text-base leading-8 text-red-50/90 sm:text-lg">
                     TAPCARE (Trigger Alert Protocol) is a mobile application
                     designed to assist Senior High School students of Rizal High
                     School during medical emergencies. Its purpose is to provide
@@ -794,8 +794,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-red-950/60 via-red-900/5 to-transparent" />
                 </div>
                 <div className="p-6 text-left">
-                  <h3 className="text-center text-xl font-bold text-white">Dashboard</h3>
-                  <p className="mt-3 text-sm leading-7 text-red-50/90">
+                  <h3 className="text-center text-2xl font-bold text-white sm:text-[1.65rem]">Dashboard</h3>
+                  <p className="mt-3 text-base leading-8 text-red-50/90 sm:text-lg">
                     TAPCARE dashboard is used by medical personnel to monitor
                     incoming alerts, view the student’s details and condition,
                     track their location, and manage emergency responses
@@ -817,8 +817,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-red-950/60 via-red-900/5 to-transparent" />
                 </div>
                 <div className="p-6 text-left">
-                  <h3 className="text-center text-xl font-bold text-white">How To Use The App</h3>
-                  <p className="mt-3 text-sm leading-7 text-red-50/90">
+                  <h3 className="text-center text-2xl font-bold text-white sm:text-[1.65rem]">How To Use The App</h3>
+                  <p className="mt-3 text-base leading-8 text-red-50/90 sm:text-lg">
                     TAPCARE dashboard is used by medical personnel to monitor
                     incoming alerts, view the student’s details and condition,
                     track their location, and manage emergency responses
@@ -843,13 +843,13 @@ export default function Home() {
             <div className="pointer-events-none absolute right-10 top-8 h-44 w-44 rounded-full bg-orange-300/10 blur-3xl" />
 
             <div className="relative z-10 mx-auto w-full max-w-7xl px-8 pb-12 pt-10 sm:px-12 lg:px-16">
-            <h2 className="text-4xl font-bold text-white sm:text-5xl">Contact Us</h2>
+            <h2 className="text-5xl font-bold text-white sm:text-6xl">Contact Us</h2>
 
             <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-14">
               <div className="space-y-8 text-red-50/95">
                 <div className="flex items-start gap-4">
                   <FaMapMarkerAlt className="mt-1 text-xl text-red-200" />
-                  <p className="text-lg leading-8">
+                  <p className="text-xl leading-9 sm:text-2xl">
                     Dr. Sixto Antonio Avenue, Caniogan, Pasig City, Metro Manila,
                     Philippines
                   </p>
@@ -857,17 +857,17 @@ export default function Home() {
 
                 <div className="flex items-center gap-4">
                   <FaPhoneAlt className="text-lg text-red-200" />
-                  <p className="text-lg">123-456-7890</p>
+                  <p className="text-xl sm:text-2xl">123-456-7890</p>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <FaEnvelope className="text-lg text-red-200" />
-                  <p className="text-lg">tapcare.assistance@gmail.com</p>
+                  <p className="text-xl sm:text-2xl">tapcare.assistance@gmail.com</p>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <FaThumbsUp className="text-lg text-red-200" />
-                  <div className="flex items-center gap-3 text-base text-white">
+                  <div className="flex items-center gap-3 text-lg text-white sm:text-xl">
                     <a
                       href="#"
                       className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/35 transition-colors hover:bg-black/50"
@@ -900,20 +900,20 @@ export default function Home() {
                 </div>
               </div>
 
-              <form className="space-y-4 text-sm text-red-100/90">
+              <form className="space-y-4 text-base text-red-100/90 sm:text-lg">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <label className="space-y-2">
                     <span className="font-medium">First Name</span>
                     <input
                       type="text"
-                      className="w-full border border-white/35 bg-white px-3 py-2 text-red-950 outline-none transition-colors focus:border-orange-300"
+                      className="w-full border border-white/35 bg-white px-3 py-2.5 text-base text-red-950 outline-none transition-colors focus:border-orange-300 sm:text-lg"
                     />
                   </label>
                   <label className="space-y-2">
                     <span className="font-medium">Last Name</span>
                     <input
                       type="text"
-                      className="w-full border border-white/35 bg-white px-3 py-2 text-red-950 outline-none transition-colors focus:border-orange-300"
+                      className="w-full border border-white/35 bg-white px-3 py-2.5 text-base text-red-950 outline-none transition-colors focus:border-orange-300 sm:text-lg"
                     />
                   </label>
                 </div>
@@ -922,7 +922,7 @@ export default function Home() {
                   <span className="font-medium">Email *</span>
                   <input
                     type="email"
-                    className="w-full border border-white/35 bg-white px-3 py-2 text-red-950 outline-none transition-colors focus:border-orange-300"
+                    className="w-full border border-white/35 bg-white px-3 py-2.5 text-base text-red-950 outline-none transition-colors focus:border-orange-300 sm:text-lg"
                   />
                 </label>
 
@@ -930,15 +930,15 @@ export default function Home() {
                   <span className="font-medium">Message</span>
                   <textarea
                     rows={4}
-                    className="w-full border border-white/35 bg-white px-3 py-2 text-red-950 outline-none transition-colors focus:border-orange-300"
+                    className="w-full border border-white/35 bg-white px-3 py-2.5 text-base text-red-950 outline-none transition-colors focus:border-orange-300 sm:text-lg"
                   />
                 </label>
 
                 <div className="flex items-center justify-between gap-4">
-                  <p className="text-sm text-red-100/80">Thanks for submitting!</p>
+                  <p className="text-base text-red-100/80 sm:text-lg">Thanks for submitting!</p>
                   <button
                     type="button"
-                    className="rounded-sm bg-blue-600 px-10 py-2 font-medium text-white transition-colors hover:bg-blue-500"
+                    className="rounded-sm bg-blue-600 px-10 py-2.5 text-base font-medium text-white transition-colors hover:bg-blue-500 sm:text-lg"
                   >
                     Send
                   </button>
