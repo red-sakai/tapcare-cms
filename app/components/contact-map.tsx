@@ -60,7 +60,7 @@ export default function ContactMap() {
       className="relative h-[280px] overflow-hidden rounded-xl border border-white/20 bg-cover bg-center bg-no-repeat sm:h-[340px]"
       style={{ backgroundImage: "url('/tapcare-assets/rhs-bg.png')" }}
     >
-      <div className="pointer-events-none absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-red-900/90 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+      <div className="pointer-events-none absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-red-900/90 px-3 py-1 text-sm font-semibold text-white shadow-lg sm:text-base">
         Rizal High School
       </div>
       <div ref={containerRef} className="h-full w-full" />
